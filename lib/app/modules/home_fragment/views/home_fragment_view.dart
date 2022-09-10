@@ -1,4 +1,5 @@
 import 'package:demo/app/modules/home_fragment/widgets/products_widget.dart';
+import 'package:demo/app/utils/user_settings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -6,7 +7,6 @@ import 'package:get/get.dart';
 import '../controllers/home_fragment_controller.dart';
 import '../widgets/home_tabs/home_tabs.dart';
 import '../widgets/home_tabs/single_tab.dart';
-
 
 class HomeFragmentView extends GetView<HomeFragmentController> {
   const HomeFragmentView({Key? key}) : super(key: key);
@@ -26,9 +26,7 @@ class HomeFragmentView extends GetView<HomeFragmentController> {
                   borderRadius: BorderRadius.circular(20),
                   border: Border.all(color: Colors.grey)),
               child: InkWell(
-                  onTap: () {
-                    Get.toNamed('/bags');
-                  },
+                  onTap: () {},
                   child: const Icon(Icons.document_scanner_outlined)),
             ),
             Container(
@@ -51,8 +49,7 @@ class HomeFragmentView extends GetView<HomeFragmentController> {
                       itemCount: controller.categories.length,
                       scrollDirection: Axis.horizontal,
                       itemBuilder: (context, index) {
-                        return Obx(() =>
-                            SingleTab(
+                        return Obx(() => SingleTab(
                               title: controller.categories[index],
                               isActive: controller.categoryIndex.value == index,
                               onTap: () {
@@ -123,8 +120,8 @@ class HomeFragmentView extends GetView<HomeFragmentController> {
           ),
         ),
         GestureDetector(
-          onTap: (){
-            if(int.parse(controller.count.value)!=0){
+          onTap: () {
+            if (UserSettingsPref.userCart.length.obs.value != 0) {
               Get.toNamed('/bags');
             }
           },
@@ -136,9 +133,8 @@ class HomeFragmentView extends GetView<HomeFragmentController> {
                 height: 45.h,
                 width: 70.w,
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(5),
-                  border: Border.all(color: Colors.black)
-                ),
+                    borderRadius: BorderRadius.circular(5),
+                    border: Border.all(color: Colors.black)),
                 child: Padding(
                   padding: const EdgeInsets.only(left: 5.0),
                   child: Row(
@@ -150,14 +146,14 @@ class HomeFragmentView extends GetView<HomeFragmentController> {
                         decoration: BoxDecoration(
                             color: Colors.black,
                             borderRadius: BorderRadius.circular(20)),
-                        child: Obx(() {
-                          return Center(
-                            child: Text(
-                              controller.count.value,
+                        child: Center(
+                          child: Obx(() {
+                            return Text(
+                              '${UserSettingsPref.userCart.length.obs.value}',
                               style: const TextStyle(color: Colors.white),
-                            ),
-                          );
-                        }),
+                            );
+                          }),
+                        ),
                       ),
                     ],
                   ),

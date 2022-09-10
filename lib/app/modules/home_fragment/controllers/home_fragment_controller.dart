@@ -16,16 +16,13 @@ class HomeFragmentController extends GetxController with StateMixin {
   RxInt tabIndex = 0.obs;
   RxList<ProductModel> products = <ProductModel>[].obs;
   RestClient? restClient;
-  RxString count = "0".obs;
 
   @override
   void onInit() {
     super.onInit();
     restClient = RestClient(ApiRequest.getInstance()!.dio());
     getProducts();
-    try {
-      count.value = UserSettingsPref.userCart.length.toString();
-    } catch (e) {}
+
   }
 
   @override
@@ -58,4 +55,5 @@ class HomeFragmentController extends GetxController with StateMixin {
   void onChangeProductType(index, RxInt tabulation) {
     tabulation.value = index;
   }
+
 }

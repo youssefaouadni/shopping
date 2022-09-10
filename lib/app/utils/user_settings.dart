@@ -4,7 +4,11 @@ import 'package:get_storage/get_storage.dart';
 class UserSettingsPref {
   static final appPref = GetStorage('USER_SETTINGS');
 
-  static List< dynamic> get userCart => appPref.read('cart');
+  static List< dynamic> get userCart {
+    writeEmptyCartList();
+    appPref.write('cart', writeEmptyCartList());
+    return appPref.read('cart');
+  }
 
   static List<dynamic> writeEmptyCartList() {
     appPref.writeIfNull('cart', <Map<String, dynamic>>[]);
