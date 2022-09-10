@@ -1,9 +1,9 @@
-import 'package:demo/app/utils/home_tabs/single_tab.dart';
+import 'package:demo/app/modules/home_fragment/widgets/home_tabs/single_tab.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
-import '../../modules/home_fragment/controllers/home_fragment_controller.dart';
+import '../../controllers/home_fragment_controller.dart';
 
 
 

@@ -1,13 +1,8 @@
 import 'dart:async';
 
-import 'package:demo/app/data/services/product_services.dart';
 import 'package:demo/app/modules/home_fragment/views/home_fragment_view.dart';
-import 'package:demo/app/utils/global_config.dart';
-import 'package:dio/dio.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
-import 'package:logger/logger.dart';
-import 'package:demo/app/data/models/product_model.dart';
 
 class HomeController extends GetxController with StateMixin {
   Timer? searchOnStoppedTyping;

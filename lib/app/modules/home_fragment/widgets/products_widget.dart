@@ -1,11 +1,12 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:demo/app/modules/home_fragment/controllers/home_fragment_controller.dart';
-import 'package:demo/app/utils/custom_loaders/shimmer.dart';
-import 'package:demo/app/utils/custom_loaders/spinkit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
+
+import '../../../components/commun/custom_loaders/shimmer.dart';
+import '../../../components/commun/custom_loaders/spinkit.dart';
 
 class ProductsWidget extends GetView<HomeFragmentController> {
   const ProductsWidget({Key? key}) : super(key: key);
@@ -66,10 +67,10 @@ class ProductsWidget extends GetView<HomeFragmentController> {
                                 alignment: Alignment.center,
                                 height: 40.h,
                                 decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(15),
+                                    borderRadius: BorderRadius.circular(5),
                                     color: (index % 2 == 0)
                                         ? Colors.deepOrangeAccent
-                                        : Colors.blueAccent),
+                                        : const Color.fromRGBO(170, 159, 209,  1)),
                                 child: Text(
                                   (index % 2 == 0) ? 'NEW' : 'SALE -40%',
                                   style: const TextStyle(color: Colors.white),

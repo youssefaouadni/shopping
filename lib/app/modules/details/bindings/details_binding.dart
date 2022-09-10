@@ -1,4 +1,3 @@
-import 'package:demo/app/data/models/product_model.dart';
 import 'package:get/get.dart';
 
 import '../controllers/details_controller.dart';

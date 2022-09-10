@@ -1,6 +1,5 @@
 import 'package:demo/app/utils/user_settings.dart';
 import 'package:get/get.dart';
-import 'package:logger/logger.dart';
 
 import '../../../data/models/product_model.dart';
 
@@ -24,9 +23,9 @@ class BagsController extends GetxController {
   void onClose() {
     super.onClose();
   }
- ///get data from local storage
-  getProducts() {
 
+  ///get data from local storage
+  getProducts() {
     for (var element in UserSettingsPref.userCart) {
       products.add(ProductModel.fromJson(element));
     }
@@ -35,6 +34,5 @@ class BagsController extends GetxController {
     for (ProductModel element in products) {
       sum.value += element.price! * element.quantity!.toDouble();
     }
-    Logger().e(products.length);
   }
 }

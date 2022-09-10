@@ -4,8 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
-import '../../data/models/product_model.dart';
-
 // ignore: must_be_immutable
 class WishListCart extends GetView<BagsController> {
   String productName;

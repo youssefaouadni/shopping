@@ -11,7 +11,6 @@ class DetailsController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    print(productModel.price);
   }
 
   @override

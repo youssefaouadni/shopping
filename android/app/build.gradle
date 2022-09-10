@@ -1,3 +1,29 @@
+
+def versionMajor = 1
+def versionMinor = 1
+def versionPatch = 4
+def pipeLineID = Integer.valueOf(System.env.CI_PIPELINE_ID ?: 0)
+def code = versionMajor * 10000 + versionMinor * 100 + versionPatch + pipeLineID
+def name = "${versionMajor}.${versionMinor}.${versionPatch} (${new Date().format('yyyy')})"
+
+static def setOutputAPKName(applicationId, applicationVariants) {
+    applicationVariants.all { variant ->
+        variant.outputs.each { output ->
+            def SEPARATOR = "_"
+            def project = applicationId
+            def buildType = variant.buildType.name
+            def versionName = "v" + variant.versionName
+            def versionCode = "c" + variant.versionCode
+            def date = new Date();
+            def formattedDate = date.format('dd.MM.yyyy_HH.mm')
+            output.outputFileName = project + SEPARATOR + buildType + SEPARATOR + versionCode +
+                    SEPARATOR + versionName +
+                    SEPARATOR + formattedDate + ".apk"
+        }
+    }
+}
+
+
 def localProperties = new Properties()
 def localPropertiesFile = rootProject.file('local.properties')
 if (localPropertiesFile.exists()) {
@@ -58,6 +84,9 @@ android {
             // TODO: Add your own signing config for the release build.
             // Signing with the debug keys for now, so `flutter run --release` works.
             signingConfig signingConfigs.debug
+            setOutputAPKName("Shopping", applicationVariants)
+            minifyEnabled true
+            shrinkResources true
         }
     }
 }

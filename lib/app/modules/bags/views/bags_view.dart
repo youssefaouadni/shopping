@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import 'package:get/get.dart';
 
-import '../../../utils/bag/bag_item.dart';
 import '../controllers/bags_controller.dart';
+import '../widgets/bag_item.dart';
 
 class BagsView extends GetView<BagsController> {
   const BagsView({Key? key}) : super(key: key);

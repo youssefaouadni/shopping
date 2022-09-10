@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import 'package:get/get.dart';
 
 import '../controllers/payment_controller.dart';
@@ -62,7 +61,7 @@ class PaymentView extends GetView<PaymentController> {
             height: 50.h,
             width: 150.h,
             decoration: BoxDecoration(
-                color: Colors.pink.withOpacity(0.4),
+                color: const Color.fromRGBO(234, 153, 240,0.5),
                 borderRadius: BorderRadius.circular(5)),
             child: const Center(
               child: Text(

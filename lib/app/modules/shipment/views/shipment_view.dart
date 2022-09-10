@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import 'package:get/get.dart';
 
-import '../../../utils/bag/bag_item.dart';
+import '../../bags/widgets/bag_item.dart';
 import '../controllers/shipment_controller.dart';
 
 class ShipmentView extends GetView<ShipmentController> {
@@ -132,7 +131,7 @@ class ShipmentView extends GetView<ShipmentController> {
             const SizedBox(
               height: 10,
             ),
-            Divider(indent: 10,endIndent: 10,),
+            const Divider(indent: 10,endIndent: 10,),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Container(
@@ -198,16 +197,16 @@ class ShipmentView extends GetView<ShipmentController> {
                             width: 80.h,
                             decoration: BoxDecoration(
 
-                              color: Colors.pink.withOpacity(0.4),
+                              color:const Color.fromRGBO(234, 153, 240,0.5),
                               borderRadius: BorderRadius.circular(5)
                             ),
-                            child: Center(
+                            child: const Center(
                               child: Text(
                                 "Klarna"
                               ),
                             ),
                           ),
-                          SizedBox(width: 10,),
+                          const SizedBox(width: 10,),
                           const Icon(Icons.arrow_forward_ios_sharp),
                         ],
                       ),
@@ -223,7 +222,7 @@ class ShipmentView extends GetView<ShipmentController> {
                     style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
                   )),
             ),
-            
+
             Obx(() => Expanded(
               child: ListView.builder(
                   itemCount: controller.products.length,

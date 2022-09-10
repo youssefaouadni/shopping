@@ -1,11 +1,12 @@
-import 'package:demo/app/modules/home/views/products_widget.dart';
-import 'package:demo/app/utils/user_settings.dart';
+import 'package:demo/app/modules/home_fragment/widgets/products_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import '../../../utils/home_tabs/home_tabs.dart';
-import '../../../utils/home_tabs/single_tab.dart';
+
 import '../controllers/home_fragment_controller.dart';
+import '../widgets/home_tabs/home_tabs.dart';
+import '../widgets/home_tabs/single_tab.dart';
+
 
 class HomeFragmentView extends GetView<HomeFragmentController> {
   const HomeFragmentView({Key? key}) : super(key: key);
@@ -138,7 +139,8 @@ class HomeFragmentView extends GetView<HomeFragmentController> {
                   borderRadius: BorderRadius.circular(5),
                   border: Border.all(color: Colors.black)
                 ),
-                child: Center(
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 5.0),
                   child: Row(
                     children: [
                       const Icon(Icons.shopping_bag_outlined),
